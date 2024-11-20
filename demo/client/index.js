@@ -42,7 +42,7 @@ window.onload = function () {
         var container = {};
 
         // Create WebSocket connection.
-        const url = "ws://127.0.0.1:42998";//window.location.hostname.includes("wztechs") ? "ws://142.11.215.231:42998" : "ws://localhost:42998";
+        const url = window.location.hostname.includes("wztechs") ? "ws://142.11.215.231:42998" : "ws://localhost:42998";
         var socket = new WebSocket(url);
         // Connection opened
         socket.addEventListener("open", function (event) {
