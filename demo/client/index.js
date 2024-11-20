@@ -42,7 +42,7 @@ window.onload = function () {
         var container = {};
 
         // Create WebSocket connection.
-        const url = "ws://10.0.104.192:42998";
+        const url = "ws://127.0.0.1:42998";//window.location.hostname.includes("wztechs") ? "ws://142.11.215.231:42998" : "ws://localhost:42998";
         var socket = new WebSocket(url);
         // Connection opened
         socket.addEventListener("open", function (event) {
@@ -72,17 +72,20 @@ window.onload = function () {
         socket.addEventListener("message", function (event) {
             var { type, payload } = JSON.parse(event.data);
 
-            //console.log(type, payload);
+            function updateEditors(){
+                
+            }
+            
             switch (type) {
                 case "JOIN":
-                    $editors.innerHTML = payload.names;
+                    $editors.textContent = payload.names;
                     setText(payload.shadow.value);
                     diffSync.initObject(container, payload.shadow.value);
                     $serverChance.value = payload.chance.server;
                     $clientChance.value = payload.chance.client;
                     break;
                 case "UPDATE_NAMES":
-                    $editors.innerHTML = payload.names;
+                    $editors.textContent = payload.names;
                     break;
                 case "SET_CHANCE":
                     $serverChance.value = payload.chance.server;
