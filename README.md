@@ -192,3 +192,5 @@ strPatch
      */
     strPatch(val, patch)
 ```
+## Tips and Tricks
+It is always recommended to clear the browser cache when connecting to a new server, as it can happen that the client still  has the old index.html cached and connects to the old server because of it.
