@@ -15,7 +15,8 @@
     "scripts": {
         "prepublish": "babel src --out-dir lib --ignore \"**/*.test.js\"",
         "build": "babel src --out-dir lib --ignore \"**/*.test.js\"",
-        "test": "jest"
+        "test": "jest",
+        "client": "http-server demo/client"
     },
     "homepage": "https://github.com/weijie0192/diff-sync-js#readme",
     "devDependencies": {
@@ -36,6 +37,6 @@
         "synchronization"
     ],
     "dependencies": {
-      
+        "http-server": "^14.1.1"
     }
 }
